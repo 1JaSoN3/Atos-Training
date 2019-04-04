@@ -1,0 +1,39 @@
+<div class="container">
+
+    <table style="text-align: center" id="tabla1Detalles">
+        <tr>
+            <th>DESTINO</th>
+            <th>#VUELO</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="destino" [(ngModel)]="vuelo.destino"><br></td>
+            <td><input type="text" id="vuelo" [(ngModel)]="vuelo.vuelo"><br></td>
+        </tr>
+    </table>
+    <table id="tabla2Detalles">
+        <tr>
+            <th>H. EMBARQUE</th>
+            <th>PUERTA</th>
+            <th>H. SALIDA</th>
+        </tr>
+        <tr>
+            <td><input type="time" id="embarque" [(ngModel)]="vuelo.embarque"><br></td>
+            <td><input type="text" id="puerta" [(ngModel)]="vuelo.puerta"><br></td>
+            <td><input type="time" id="salida" [(ngModel)]="vuelo.salida"><br></td>
+        </tr>
+    </table>
+    <table id="tabla3Detalles">
+        <tr>
+            <th>TIEMPO VUELO</th>
+            <th>AVIÓN</th>
+        </tr>
+        <tr>
+            <td><input type="time" id="tiempo" [(ngModel)]="vuelo.tiempo"><br></td>
+            <td><input type="text" id="avion" [(ngModel)]="vuelo.avion"><br></td>
+        </tr>
+    </table>
+    <div class="botoneraDetalles">
+        <button id="botonVolver" (click)="volver()">VOLVER</button>
+        <button id="botonSalvar" (click)="salvar()">SALVAR</button>
+    </div>
+</div>

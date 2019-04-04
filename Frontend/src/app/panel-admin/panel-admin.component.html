@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="botones">
+        <button id="nuevoVuelo" (click)="nuevoVuelo()">NUEVO VUELO</button>
+        <button id="nuevoUsuario" (click)="nuevoUsuario()">NUEVO USUARIO</button>
+        <button id="desloguear" (click)="logOut()">SALIR DE LA APLICACIÓN</button>
+        <div class="text-right">
+            <label class="navbar-button">
+                    <input type="file" accept=".json" (change)="onSelectFile($event)" multiple/>
+                </label>
+            <button *ngIf="infoVuelosFichero" class="navbar-button" (click)="nuevosVuelos()">CARGAR FICHERO</button>
+        </div>
+    </div>
+    <div id="tablaVuelos">
+        <table>
+            <thead>
+                <tr>
+                    <th># VUELO</th>
+                    <th>DESTINO</th>
+                    <th>H. EMBARQUE</th>
+                    <th>PUERTA</th>
+                    <th>H. SALIDA</th>
+                    <th>EDITAR</th>
+                    <th>ELIMINAR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="vuelo" name="vuelofilter" placeholder="Filtrar #vuelo">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="destino" name="destinofilter" placeholder="Filtrar destino">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="embarque" name="embarquefilter" placeholder="Filtrar embarque">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="puerta" name="puertafilter" placeholder="Filtrar puerta">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="salida" name="salidafilter" placeholder="Filtrar salida">
+                    </td>
+                    <td colspan="2">
+                        <button class="navbar-button" (click)='limpiarCampos()'>Limpiar filtros</button>
+                    </td>
+                </tr>
+                <tr *ngFor="let infoVuelo of (infoVuelos | order | filters:vuelo:'vuelo' | filters:destino:'destino' | filters:embarque:'embarque' | 
+                filters:puerta:'puerta' | filters:salida:'salida' | paginate: { itemsPerPage: 5, currentPage: currentPage })">
+                    <td><b>{{ infoVuelo.vuelo }}</b></td>
+                    <td><b>{{ infoVuelo.destino }}</b></td>
+                    <td><b>{{ infoVuelo.embarque }}</b></td>
+                    <td><b>{{ infoVuelo.puerta }}</b></td>
+                    <td><b>{{ infoVuelo.salida }}</b></td>
+                    <td class="botones">
+                        <a [routerLink]="['editar/',infoVuelo.id]">EDITAR</a>
+                    </td>
+                    <td class="botones">
+                        <a [routerLink]="['eliminar/',infoVuelo.id]">ELIMINAR</a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <pagination-controls class="text-center" (pageChange)="currentPage = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+
+    <button (click)="exporta()">Exportar a fichero Excel</button>
+</div>

@@ -1,0 +1,135 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    padding-top: 60px;
+}
+
+td a,
+td a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+button,
+td.botones {
+    background: #7f7f77;
+    color: white;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+}
+
+.limpiar {
+    margin: 0 -27px;
+}
+
+#tablaVuelos {
+    width: 100%;
+}
+
+#tablaVuelos td,
+#tablaVuelos th {
+    width: 300px;
+}
+
+th,
+#labelUsername,
+#labelPass,
+#labelAdmin {
+    background-color: #adb9ca;
+    text-align: center !important;
+    color: white;
+}
+
+#textUsername,
+#textPassword {
+    margin-top: -8px;
+}
+
+td,
+#textUsername,
+#textPassword,
+#user,
+#pass {
+    background: #ffe699;
+    color: white;
+    text-align: center;
+}
+
+th,
+td {
+    height: 50px;
+}
+
+table,
+td,
+th {
+    border: 1px solid blue;
+}
+
+#tablaVuelos {
+    padding-top: 5px;
+    width: 100%;
+}
+
+#tabla1Detalles,
+#tabla2Detalles,
+#tabla3Detalles {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tabla1Detalles td,
+#tabla2Detalles td,
+#tabla3Detalles td,
+#tabla1Detalles th,
+#tabla2Detalles th,
+#tabla3Detalles th {
+    width: 200px;
+}
+
+.botoneraDetalles {
+    float: right;
+    margin-right: 250px;
+    margin-top: 20px;
+}
+
+.nuevoUsuario label,
+.nuevoUsuario input {
+    border: 1px solid blue;
+    width: 500px;
+    line-height: 50px;
+}
+
+.nuevoUsuario input[type='checkbox'] {
+    width: inherit;
+    margin-right: 10px;
+}
+
+#labelAdmin {
+    border: 1px solid blue;
+    width: 200px;
+    line-height: 50px;
+}
+
+.container.nuevoUsuario,
+.container .botoneraNuevoUsuario {
+    text-align: center;
+}
+
+li.pagination-previous,
+li.pagination-next {
+    background: #adb9ca;
+}
+
+li.pagination-previous span,
+li.pagination-next span,
+.pagination-previous a::before,
+.pagination-previous::before,
+.pagination-next a::after,
+.pagination-next::after {
+    font-weight: bold;
+    color: black;
+}

@@ -1,0 +1,39 @@
+<div class="container">
+
+    <table id="tabla1Detalles">
+        <tr>
+            <th>DESTINO</th>
+            <th>#VUELO</th>
+        </tr>
+        <tr>
+            <td>{{ vueloActual.destino }}</td>
+            <td>{{ vueloActual.vuelo }}</td>
+        </tr>
+    </table>
+    <table id="tabla2Detalles">
+        <tr>
+            <th>H. EMBARQUE</th>
+            <th>PUERTA</th>
+            <th>H. SALIDA</th>
+        </tr>
+        <tr>
+            <td>{{ vueloActual.embarque }}</td>
+            <td>{{ vueloActual.puerta }}</td>
+            <td>{{ vueloActual.salida }}</td>
+        </tr>
+    </table>
+    <table id="tabla3Detalles">
+        <tr>
+            <th>TIEMPO VUELO</th>
+            <th>AVIÓN</th>
+        </tr>
+        <tr>
+            <td>{{ vueloActual.tiempo }}</td>
+            <td>{{ vueloActual.avion }}</td>
+        </tr>
+    </table>
+    <div class="botoneraDetalles">
+        <button id="botonVolver" (click)="volver()">VOLVER</button>
+        <button id="botonConfirmar" (click)="confirmar()">CONFIRMAR</button>
+    </div>
+</div>

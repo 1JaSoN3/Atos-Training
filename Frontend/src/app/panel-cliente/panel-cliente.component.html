@@ -1,0 +1,54 @@
+<div class="container">
+    <div id="tablaVuelos">
+        <table>
+            <thead>
+                <tr>
+                    <th><b># VUELO</b></th>
+                    <th><b>DESTINO</b></th>
+                    <th><b>H. EMBARQUE</b></th>
+                    <th><b>PUERTA</b></th>
+                    <th><b>H. SALIDA</b></th>
+                    <th><b>INFO</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="vuelo" name="vuelofilter" placeholder="Filtrar #vuelo">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="destino" name="destinofilter" placeholder="Filtrar destino">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="embarque" name="embarquefilter" placeholder="Filtrar embarque">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="puerta" name="puertafilter" placeholder="Filtrar puerta">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" [(ngModel)]="salida" name="salidafilter" placeholder="Filtrar salida">
+                    </td>
+                    <td colspan="2">
+                        <button class="button limpiar" style="width:200px" (click)='limpiarCampos()'>Limpiar filtros</button>
+                    </td>
+
+                </tr>
+                <tr *ngFor="let infoVuelo of (infoVuelos | order | filters:vuelo:'vuelo' | filters:destino:'destino' | filters:embarque:'embarque' | 
+                        filters:puerta:'puerta' | filters:salida:'salida' | paginate: { itemsPerPage: 5, currentPage: currentPage })">
+                    <td><b>{{ infoVuelo.vuelo }}</b></td>
+                    <td><b>{{ infoVuelo.destino }}</b></td>
+                    <td><b>{{ infoVuelo.embarque }}</b></td>
+                    <td><b>{{ infoVuelo.puerta }}</b></td>
+                    <td><b>{{ infoVuelo.salida }}</b></td>
+                    <td class="botones">
+                        <a href="cliente/detalles/{{infoVuelo.id}}">+INFO</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <pagination-controls class="text-center" (pageChange)="currentPage = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+    <button (click)="exporta();">Exportar a fichero Excel</button>
+    <button id="desloguear" (click)="logOut()">SALIR DE LA APLICACIÓN</button>
+</div>
