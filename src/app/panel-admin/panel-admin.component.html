@@ -1,0 +1,162 @@
+<div class="container">
+  <div class="botones">
+    <button id="nuevaRopa" (click)="nuevaRopa()">NUEVA ROPA</button>
+    <button id="nuevoUsuario" (click)="nuevoUsuario()">NUEVO USUARIO</button>
+    <button id="desloguear" (click)="logOut()">SALIR DE LA APLICACIÓN</button>
+    <div class="text-right">
+      <label class="navbar-button">
+        <input
+          type="file"
+          accept=".json"
+          (change)="onSelectFile($event)"
+          multiple
+        />
+      </label>
+      <button
+        *ngIf="infoRopasFichero"
+        class="navbar-button"
+        (click)="nuevasRopas()"
+      >
+        CARGAR FICHERO
+      </button>
+    </div>
+  </div>
+  <div id="tablaRopas">
+    <table>
+      <thead>
+        <tr>
+          <th># ROPA</th>
+          <th>MARCA</th>
+          <th>TALLA</th>
+          <th>COLOR</th>
+          <th>PRECIO</th>
+          <th>GENERO</th>
+          <th>ORIGEN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="ropa"
+              name="ropafilter"
+              placeholder="Filtrar #ropa"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="marca"
+              name="marcafilter"
+              placeholder="Filtrar marca"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="talla"
+              name="tallafilter"
+              placeholder="Filtrar talla"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="color"
+              name="colorfilter"
+              placeholder="Filtrar color"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="precio"
+              name="preciofilter"
+              placeholder="Filtrar precio"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="genero"
+              name="generofilter"
+              placeholder="Filtrar genero"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="origen"
+              name="origenfilter"
+              placeholder="Filtrar origen"
+            />
+          </td>
+          <td colspan="2">
+            <button class="navbar-button" (click)="limpiarCampos()">
+              Limpiar filtros
+            </button>
+          </td>
+        </tr>
+        <tr
+          *ngFor="
+            let infoRopa of infoRopas
+              | order
+              | filters: ropa:'ropa'
+              | filters: marca:'marca'
+              | filters: talla:'talla'
+              | filters: color:'color'
+              | filters: precio:'precio'
+              | filters: genero:'genero'
+              | filters: origen:'origen'
+              | paginate: { itemsPerPage: 5, currentPage: currentPage }
+          "
+        >
+          <td>
+            <b>{{ infoRopa.ropa }}</b>
+          </td>
+          <td>
+            <b>{{ infoRopa.marca }}</b>
+          </td>
+          <td>
+            <b>{{ infoRopa.talla }}</b>
+          </td>
+          <td>
+            <b>{{ infoRopa.color }}</b>
+          </td>
+          <td>
+            <b>{{ infoRopa.precio }}</b>
+          </td>
+          <td>
+            <b>{{ infoRopa.genero }}</b>
+          </td>
+          <td>
+            <b>{{ infoRopa.origen }}</b>
+          </td>
+          <td class="botones">
+            <a [routerLink]="['editar/', infoRopa.id]">EDITAR</a>
+          </td>
+          <td class="botones">
+            <a [routerLink]="['eliminar/', infoRopa.id]">ELIMINAR</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <pagination-controls
+      class="text-center"
+      (pageChange)="currentPage = $event"
+      previousLabel="Anterior"
+      nextLabel="Siguiente"
+    ></pagination-controls>
+  </div>
+
+  <button (click)="exporta()">Exportar a fichero Excel</button>
+</div>

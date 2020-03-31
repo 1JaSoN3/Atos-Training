@@ -1,0 +1,41 @@
+<div class="container">
+  <table id="tabla1Detalles">
+    <tr>
+      <th>MARCA</th>
+      <th>#ROPA</th>
+    </tr>
+    <tr>
+      <td>{{ ropaActual.marca }}</td>
+      <td>{{ ropaActual.ropa }}</td>
+    </tr>
+  </table>
+
+  <table id="tabla2Detalles">
+    <tr>
+      <th>TALLA</th>
+      <th>COLOR</th>
+      <th>PRECIO</th>
+    </tr>
+    <tr>
+      <td>{{ ropaActual.talla }}</td>
+      <td>{{ ropaActual.color }}</td>
+      <td>{{ ropaActual.precio }}</td>
+    </tr>
+  </table>
+
+  <table id="tabla3Detalles">
+    <tr>
+      <th>GENERO</th>
+      <th>ORIGEN</th>
+    </tr>
+    <tr>
+      <td>{{ ropaActual.genero }}</td>
+      <td>{{ ropaActual.origen }}</td>
+    </tr>
+  </table>
+
+  <div class="botoneraDetalles">
+    <button id="botonVolver" (click)="volver()">VOLVER</button>
+    <button id="botonConfirmar" (click)="confirmar()">CONFIRMAR</button>
+  </div>
+</div>

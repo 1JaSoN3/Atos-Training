@@ -1,0 +1,41 @@
+<div class="container">
+  <table style="text-align: center" id="tabla1Detalles">
+    <tr>
+      <th>MARCA</th>
+      <th>#ROPA</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="marca" [(ngModel)]="ropa.marca" /><br /></td>
+      <td><input type="text" id="ropa" [(ngModel)]="ropa.ropa" /><br /></td>
+    </tr>
+  </table>
+
+  <table id="tabla2Detalles">
+    <tr>
+      <th>TALLA</th>
+      <th>COLOR</th>
+      <th>PRECIO</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="talla" [(ngModel)]="ropa.talla" /><br /></td>
+      <td><input type="text" id="color" [(ngModel)]="ropa.color" /><br /></td>
+      <td><input type="text" id="precio" [(ngModel)]="ropa.precio" /><br /></td>
+    </tr>
+  </table>
+
+  <table id="tabla3Detalles">
+    <tr>
+      <th>GENERO</th>
+      <th>ORIGEN</th>
+    </tr>
+    <tr>
+      <td><input type="text" id="genero" [(ngModel)]="ropa.genero" /><br /></td>
+      <td><input type="text" id="origen" [(ngModel)]="ropa.origen" /><br /></td>
+    </tr>
+  </table>
+
+  <div class="botoneraDetalles">
+    <button id="botonVolver" (click)="volver()">VOLVER</button>
+    <button id="botonSalvar" (click)="salvar()">SALVAR</button>
+  </div>
+</div>

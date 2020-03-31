@@ -1,0 +1,15 @@
+<div class="container nuevoUsuario">
+    <div class="nuevoUsuario">
+        <label id="labelUsername">USERNAME</label><br>
+        <input type="text" id="textUsername" [(ngModel)]="Username"><br>
+        <label id="labelPass">PASS</label><br>
+        <input type="password" id="textPassword" [(ngModel)]="Password"><br>
+        <div>
+            <input type="checkbox" id="admin" [(ngModel)]="RolAdmin"><label id="labelAdmin">ADMIN</label>
+        </div>
+    </div>
+    <div class="botoneraNuevoUsuario">
+        <button id="botonVolver" (click)="volver()">VOLVER</button>
+        <button id="botonSalvar" (click)="salvar()">SALVAR</button>
+    </div>
+</div>
