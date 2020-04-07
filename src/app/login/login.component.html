@@ -1,14 +1,84 @@
-<div class="container">
-    <div id="login">
-
-        <label>Username:</label>
-        <br>
-        <input type="text" id="user" [(ngModel)]="username" placeholder="usuario">
-        <br>
-        <label>Password:</label>
-        <br>
-        <input type="password" id="pass" [(ngModel)]="password" placeholder="contraseña ">
-        <br>
-        <button (click)="login()">Login</button>
-    </div>
+<!-- <div class="container">
+  <div id="login">
+    <label>Username:</label>
+    <br />
+    <input type="text" id="user" [(ngModel)]="username" placeholder="usuario" />
+    <br />
+    <label>Password:</label>
+    <br />
+    <input
+      type="password"
+      id="pass"
+      [(ngModel)]="password"
+      placeholder="contraseña "
+    />
+    <br />
+    <button (click)="login()">Login</button>
+  </div>
 </div>
+ -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      document.write('<base href="' + document.location + '" />');
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>TIENDA ONLINE</title>
+
+    <link
+      id="theme-css"
+      rel="stylesheet"
+      type="text/css"
+      href="../../assets/theme/blue/theme-accent.css"
+    />
+    <link
+      id="layout-css"
+      rel="stylesheet"
+      type="text/css"
+      href="../../assets/layout/css/layout-blue.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../assets/pages/primeng.min.css"
+    />
+  </head>
+
+  <body class="login-body">
+    <div class="login-panel"></div>
+
+    <div class="login-content">
+      <img
+        src="../../assets/layout/images/logo-black.png"
+        alt="babylon-layout"
+      />
+
+      <div class="login-input-wrapper">
+        <input
+          type="text"
+          id="user"
+          [(ngModel)]="username"
+          placeholder="usuario"
+        />
+      </div>
+
+      <div class="login-input-wrapper">
+        <input
+          type="password"
+          id="pass"
+          [(ngModel)]="password"
+          placeholder="contraseña "
+        />
+      </div>
+
+      <button type="button" (click)="login()">Login</button>
+    </div>
+  </body>
+</html>
